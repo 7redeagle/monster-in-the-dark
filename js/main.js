@@ -19,14 +19,13 @@ enterGame = () => {
   welcomeButton.onclick = () => {
     welcome.style.visibility = "hidden";
     html.style.visibility = "visible";
+    setTimeout(function () {
+      document.documentElement.style.cssText = "--cursorSize: 6vmax";
+      html.style.visibility = "visible";
+      monster.style.top = Math.floor(Math.random() * 50);
+      monster.style.left = Math.floor(Math.random() * 50);
+    }, 3000);
   };
-
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 6vmax";
-    html.style.visibility = "visible";
-    monster.style.top = Math.floor(Math.random() * 50);
-    monster.style.left = Math.floor(Math.random() * 50);
-  }, 3000);
 };
 
 enterGame();
