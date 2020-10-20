@@ -10,29 +10,45 @@ function update(e) {
 document.addEventListener("mousemove", update);
 document.addEventListener("touchmove", update);
 
-let welcomeButton = document.querySelector(".welcome__button");
-let welcome = document.querySelector(".welcome");
-let html = document.querySelector("html");
-let monster = document.querySelector(".monster");
+const hardBtn = document.querySelector(".button__hard");
+const mediumBtn = document.querySelector(".button__medium");
+const easyBtn = document.querySelector(".button__easy");
+const mainScreen = document.querySelector(".main");
+const gameScreen = document.querySelector("html");
+const monster = document.querySelector(".monster");
 
-enterGame = () => {
-  welcomeButton.onclick = () => {
-    welcome.style.visibility = "hidden";
-    html.style.visibility = "visible";
-    setTimeout(function () {
-      document.documentElement.style.cssText = "--cursorSize: 6vmax";
-      html.style.visibility = "visible";
-      monster.style.top = Math.floor(Math.random() * 50);
-      monster.style.left = Math.floor(Math.random() * 50);
-    }, 3000);
-  };
+hardBtn.onclick = () => {
+  mainScreen.style.visibility = "hidden";
+  gameScreen.style.visibility = "visible";
+  gameScreen.style.backgroundImage = "url('../assets/hard.jpg')";
 };
 
-enterGame();
+mediumBtn.onclick = () => {
+  mainScreen.style.visibility = "hidden";
+  gameScreen.style.visibility = "visible";
+};
+
+mediumBtn.onclick = () => {
+  mainScreen.style.visibility = "hidden";
+  gameScreen.style.visibility = "visible";
+};
+// mainBtn.addEventListener("click", function () {
+//   //
+//   // setTimeout(function () {
+//   //   document.documentElement.style.cssText = "--cursorSize: 6vmax";
+//   //   html.style.visibility = "visible";
+//   //   monster.style.top = Math.floor(Math.random() * 50);
+//   //   monster.style.left = Math.floor(Math.random() * 50);
+//   // }, 3000);
+// });
+
+// enterGame = () => {};
+
+// enterGame();
 
 // game
 
-monster.onmouseover = () => {
-  // alert("You vanquished the monster");
-  monster.style.cssText = "transform: scale(1)";
-};
+// monster.onmouseover = () => {
+//   // alert("You vanquished the monster");
+//   monster.style.cssText = "transform: scale(1)";
+// };

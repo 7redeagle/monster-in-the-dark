@@ -18,7 +18,7 @@ html {
   visibility: hidden;
   /* cursor: crosshair; */
   cursor: none;
-  /* background-image: url(../assets/house.jpg); */
+  /* background-image: url(../assets/hard.jpg);  */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,7 +52,6 @@ html:before {
 .main {
   visibility: visible;
   width: 75vw;
-  height: 100vh;
   margin: auto;
   padding: 50px 50px;
   cursor: default;
@@ -71,14 +70,6 @@ html:before {
   grid-gap: 20px;
 }
 
-@media (max-width: 600px) {
-  .main__buttons {
-    display: grid;
-    grid-template-columns: none;
-    grid-template-rows: repeat(3, 1fr);
-  }
-}
-
 .button {
   font-family: var(--font);
   font-size: 20px;
@@ -93,4 +84,10 @@ html:before {
   cursor: pointer;
 }
 
-/* main */
+@media (max-width: 600px) {
+  .main__buttons {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
