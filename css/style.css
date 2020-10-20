@@ -16,19 +16,20 @@ html {
   line-height: 2;
   position: absolute;
   visibility: hidden;
-  cursor: crosshair;
-  background-image: url(../assets/tokyo.jpg);
+  /* cursor: crosshair; */
+  cursor: none;
+  background-image: url(../assets/house.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: all 2s;
 }
 
 html:before {
   content: "";
   display: block;
-
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: fixed;
   pointer-events: none;
   background: radial-gradient(
@@ -48,11 +49,11 @@ div {
   display: flex;
 }
 
-img {
+.monster {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3vw;
+  width: 2vw;
   mix-blend-mode: darken;
 }
 
