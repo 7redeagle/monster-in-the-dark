@@ -18,11 +18,11 @@ html {
   visibility: hidden;
   /* cursor: crosshair; */
   cursor: none;
-  background-image: url(../assets/house.jpg);
+  /* background-image: url(../assets/house.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: all 2s;
+  transition: all 0.2s;
 }
 
 html:before {
@@ -40,15 +40,6 @@ html:before {
   );
 }
 
-div {
-  position: relative;
-  background-color: chartreuse;
-  width: 10px;
-  height: 50px;
-  margin: 10px;
-  display: flex;
-}
-
 .monster {
   position: absolute;
   top: 0;
@@ -58,30 +49,47 @@ div {
 }
 
 /* click to play screen */
-.welcome {
+.main {
   visibility: visible;
   width: 75vw;
+  height: 100vh;
   margin: auto;
+  padding: 50px 50px;
   cursor: default;
-  color: #ffffff;
+  color: #000000;
 }
 
-.welcome__text {
-  transition: all 0.3s ease-in-out;
+.main__monster {
+  display: block;
+  width: 100px;
+  margin: 20px auto;
 }
 
-.welcome__button {
+.main__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .main__buttons {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+.button {
   font-family: var(--font);
   font-size: 20px;
   outline: none;
   background: transparent;
   border: 2px solid #000000;
   transition: all 0.2s ease-in-out;
-  color: #ffffff;
 }
 
-.welcome__button:hover {
-  transform: scale(1.3);
+.button:hover {
+  transform: scale(1.2);
   cursor: pointer;
 }
 
