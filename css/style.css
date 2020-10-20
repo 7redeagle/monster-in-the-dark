@@ -51,7 +51,7 @@ html:before {
 /* click to play screen */
 .main {
   visibility: visible;
-  width: 75vw;
+  width: 60vw;
   margin: auto;
   padding: 50px 50px;
   cursor: default;

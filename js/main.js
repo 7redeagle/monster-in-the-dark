@@ -10,45 +10,10 @@ function update(e) {
 document.addEventListener("mousemove", update);
 document.addEventListener("touchmove", update);
 
-const hardBtn = document.querySelector(".button__hard");
-const mediumBtn = document.querySelector(".button__medium");
-const easyBtn = document.querySelector(".button__easy");
-const mainScreen = document.querySelector(".main");
-const gameScreen = document.querySelector("html");
-const monster = document.querySelector(".monster");
+// game setup
 
-hardBtn.onclick = () => {
-  mainScreen.style.visibility = "hidden";
-  gameScreen.style.visibility = "visible";
-  gameScreen.style.backgroundImage = "url('../assets/hard.jpg')";
-};
+// music: auto play music once one of the buttons are clicked, play different music when game lost or won (royalty free music)
 
-mediumBtn.onclick = () => {
-  mainScreen.style.visibility = "hidden";
-  gameScreen.style.visibility = "visible";
-};
+// fix monster random not working
 
-mediumBtn.onclick = () => {
-  mainScreen.style.visibility = "hidden";
-  gameScreen.style.visibility = "visible";
-};
-// mainBtn.addEventListener("click", function () {
-//   //
-//   // setTimeout(function () {
-//   //   document.documentElement.style.cssText = "--cursorSize: 6vmax";
-//   //   html.style.visibility = "visible";
-//   //   monster.style.top = Math.floor(Math.random() * 50);
-//   //   monster.style.left = Math.floor(Math.random() * 50);
-//   // }, 3000);
-// });
-
-// enterGame = () => {};
-
-// enterGame();
-
-// game
-
-// monster.onmouseover = () => {
-//   // alert("You vanquished the monster");
-//   monster.style.cssText = "transform: scale(1)";
-// };
+// use functions for items that are reusable
