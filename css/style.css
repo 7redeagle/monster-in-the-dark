@@ -17,6 +17,10 @@ html {
   position: absolute;
   visibility: hidden;
   cursor: crosshair;
+  background-image: url(../assets/tokyo.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html:before {
@@ -35,12 +39,30 @@ html:before {
   );
 }
 
+div {
+  position: relative;
+  background-color: chartreuse;
+  width: 10px;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3vw;
+  mix-blend-mode: darken;
+}
+
 /* click to play screen */
 .welcome {
   visibility: visible;
   width: 75vw;
   margin: auto;
   cursor: default;
+  color: #ffffff;
 }
 
 .welcome__text {
@@ -54,6 +76,7 @@ html:before {
   background: transparent;
   border: 2px solid #000000;
   transition: all 0.2s ease-in-out;
+  color: #ffffff;
 }
 
 .welcome__button:hover {

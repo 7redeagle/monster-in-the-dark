@@ -23,3 +23,13 @@ function update(e) {
 
 document.addEventListener("mousemove", update);
 document.addEventListener("touchmove", update);
+
+// game
+let monster = document.querySelector(".monster");
+
+monster.onmouseover = () => {
+  alert("You vanquished the monster");
+  monster.style.cssText("transform: scale(0)");
+};
+
+
