@@ -9,16 +9,12 @@
 }
 
 html {
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-  font-family: var(--font);
-  line-height: 2;
+  width: 100%;
+  min-height: 100%;
   position: absolute;
   visibility: hidden;
   cursor: none;
-  /* background-image: url(../assets/hard.jpg);  */
-  background-position: center;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -55,6 +51,9 @@ html::before {
   padding: 50px 50px;
   cursor: default;
   color: #000000;
+  text-align: center;
+  font-family: var(--font);
+  line-height: 2;
 }
 
 .main__monster {
@@ -83,10 +82,7 @@ html::before {
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
-  html {
-    background-size: 1000px 1000px;
-  }
+@media (max-width: 500px) {
   .main__buttons {
     display: grid;
     grid-template-columns: none;
