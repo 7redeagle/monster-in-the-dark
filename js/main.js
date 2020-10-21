@@ -10,14 +10,26 @@ function update(e) {
 document.addEventListener("mousemove", update);
 document.addEventListener("touchmove", update);
 
-// game setup
+// click button to begin game
 const allBtn = document.querySelectorAll(".button");
+const mainScreen = document.querySelector(".main");
+const gameScreen = document.querySelector("html");
+const monster = document.querySelector(".monster");
 
 allBtn.forEach(function (button) {
   button.onclick = () => {
-    alert("hello");
+    mainScreen.style.visibility = "hidden";
+    gameScreen.style.visibility = "visible";
+    if (button.classList.contains("button__hard")) {
+      gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
+    } else if (button.classList.contains("button__medium")) {
+      gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
+    } else {
+      gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+    }
   };
 });
+
 // music: auto play music once one of the buttons are clicked, play different music when game lost or won (royalty free music)
 
 // fix monster random not working

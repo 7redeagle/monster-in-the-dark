@@ -16,7 +16,6 @@ html {
   line-height: 2;
   position: absolute;
   visibility: hidden;
-  /* cursor: crosshair; */
   cursor: none;
   /* background-image: url(../assets/hard.jpg);  */
   background-position: center;
@@ -25,7 +24,7 @@ html {
   transition: all 0.2s;
 }
 
-html:before {
+html::before {
   content: "";
   display: block;
   width: 100%;
@@ -44,7 +43,7 @@ html:before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 2vw;
+  width: 5vw;
   mix-blend-mode: darken;
 }
 
