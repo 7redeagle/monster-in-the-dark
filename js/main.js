@@ -16,85 +16,6 @@ const mainScreen = document.querySelector(".main");
 const gameScreen = document.querySelector("html");
 const monster = document.querySelector(".monster");
 
-easy = () => {
-  gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-  gameScreen.style.visibility = "visible";
-};
-medium = () => {
-  gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
-  gameScreen.style.visibility = "visible";
-};
-hard = () => {
-  gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
-  gameScreen.style.visibility = "visible";
-};
-
-hardTime = () => {
-  hard();
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 6vmax";
-    hard();
-  }, 4000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 4vmax";
-    hard();
-  }, 8000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 2vmax";
-    hard();
-  }, 10000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 0vmax";
-    hard();
-    alert("The monster ate you!");
-    location.reload();
-  }, 13000);
-};
-
-mediumTime = () => {
-  medium();
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 6vmax";
-    medium();
-  }, 4000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 4vmax";
-    medium();
-  }, 8000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 2vmax";
-    medium();
-  }, 10000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 0vmax";
-    medium();
-    alert("The monster ate you!");
-    location.reload();
-  }, 13000);
-};
-
-easyTime = () => {
-  easy();
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 6vmax";
-    easy();
-  }, 4000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 4vmax";
-    easy();
-  }, 8000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 2vmax";
-    easy();
-  }, 10000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 0vmax";
-    easy();
-    alert("The monster ate you!");
-    location.reload();
-  }, 13000);
-};
-
 // move monster to random position
 moveMonster = () => {
   function getRandomPosition(e) {
@@ -112,6 +33,92 @@ moveMonster = () => {
 // The monster will move every 5 seconds
 let intervalMonster = window.setInterval(moveMonster, 5000);
 
+easy = () => {
+  gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+  gameScreen.style.visibility = "visible";
+};
+medium = () => {
+  gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
+  gameScreen.style.visibility = "visible";
+};
+hard = () => {
+  gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
+  gameScreen.style.visibility = "visible";
+};
+
+lostGame = () => {
+  gameScreen.style.pointerEvents = "none";
+  window.clearInterval(intervalMonster);
+  setTimeout(function () {
+    gameScreen.style.opacity = "0";
+    alert("The monster ate you!");
+    location.reload();
+  }, 1000);
+};
+
+hardTime = () => {
+  hard();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 5vmax";
+    hard();
+  }, 5000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 3vmax";
+    hard();
+  }, 10000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 1max";
+    hard();
+  }, 14000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    hard();
+    lostGame();
+  }, 15000);
+};
+
+mediumTime = () => {
+  medium();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 5vmax";
+    medium();
+  }, 5000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 3vmax";
+    medium();
+  }, 10000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 1max";
+    medium();
+  }, 14000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    medium();
+    lostGame();
+  }, 15000);
+};
+
+easyTime = () => {
+  easy();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 6vmax";
+    easy();
+  }, 5000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
+    easy();
+  }, 10000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 2vmax";
+    easy();
+  }, 14000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    easy();
+    lostGame();
+  }, 15000);
+};
+
 // click button to begin game and hide the mainScreen. Each button links to different background images.
 allBtn.forEach(function (button) {
   button.onclick = () => {
@@ -121,7 +128,7 @@ allBtn.forEach(function (button) {
     if (button.classList.contains("button__hard")) {
       hardTime();
     } else if (button.classList.contains("button__medium")) {
-      medium();
+      mediumTime();
     } else {
       easyTime();
     }
@@ -132,12 +139,11 @@ allBtn.forEach(function (button) {
 // on mouseover of monster, you win play sound, reload game and clear interval. Also activate scream.
 monster.onmouseover = () => {
   window.clearInterval(intervalMonster);
-  alert("You vanquished the monster");
-  location.reload();
+  monster.style.transform = "scale(2.5)";
+  setTimeout(function () {
+    alert("You vanquished the monster! You get to live another day.");
+    location.reload();
+  }, 1);
 };
 
 // music: auto play music once one of the buttons are clicked, play different music when game lost or won (royalty free music)
-
-// play doom music when lost
-
-// use functions for items that are reusable
