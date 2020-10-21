@@ -19,7 +19,7 @@ const monster = document.querySelector(".monster");
 // background music
 let audio = document.querySelector(".sound__bg");
 playAudioBg = () => {
-  audio.volume = 0.2;
+  audio.volume = 0.3;
   audio.play();
 };
 pauseAudioBg = () => {
@@ -44,23 +44,23 @@ moveMonster = () => {
 };
 
 // The monster will move every 5 seconds
-let intervalMonster = window.setInterval(moveMonster, 5000);
+let intervalMonster = window.setInterval(moveMonster, 3000);
 
 // backgroung img for each mode
-easy = () => {
-  gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+hard = () => {
+  gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
   gameScreen.style.visibility = "visible";
 };
 medium = () => {
   gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
   gameScreen.style.visibility = "visible";
 };
-hard = () => {
-  gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
+easy = () => {
+  gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
   gameScreen.style.visibility = "visible";
 };
 
-lostGame = () => {
+loseGame = () => {
   gameScreen.style.pointerEvents = "none";
   window.clearInterval(intervalMonster);
   pauseAudioBg();
@@ -69,6 +69,17 @@ lostGame = () => {
     alert("The monster ate you!");
     location.reload();
   }, 1000);
+};
+
+// win game
+monster.onmouseover = () => {
+  window.clearInterval(intervalMonster);
+  monster.style.transform = "scale(2.5)";
+  audio.pause();
+  setTimeout(function () {
+    alert("You vanquished the monster! You get to live another day.");
+    location.reload();
+  }, 1);
 };
 
 hardTime = () => {
@@ -89,7 +100,7 @@ hardTime = () => {
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
     hard();
-    lostGame();
+    loseGame();
   }, 15000);
 };
 
@@ -111,7 +122,7 @@ mediumTime = () => {
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
     medium();
-    lostGame();
+    loseGame();
   }, 15000);
 };
 
@@ -119,21 +130,21 @@ easyTime = () => {
   easy();
   playAudioBg();
   setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 6vmax";
+    document.documentElement.style.cssText = "--cursorSize: 5vmax";
     easy();
   }, 5000);
   setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 4vmax";
+    document.documentElement.style.cssText = "--cursorSize: 3vmax";
     easy();
   }, 10000);
   setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 2vmax";
+    document.documentElement.style.cssText = "--cursorSize: 1max";
     easy();
   }, 14000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
     easy();
-    lostGame();
+    loseGame();
   }, 15000);
 };
 
@@ -147,22 +158,8 @@ allBtn.forEach(function (button) {
       hardTime();
     } else if (button.classList.contains("button__medium")) {
       mediumTime();
-    } else {
+    } else if (button.classList.contains("button__easy")) {
       easyTime();
     }
-    moveMonster();
   };
 });
-
-// on mouseover of monster, you win play sound, reload game and clear interval. Also activate scream.
-monster.onmouseover = () => {
-  window.clearInterval(intervalMonster);
-  monster.style.transform = "scale(2.5)";
-  audio.pause();
-  setTimeout(function () {
-    alert("You vanquished the monster! You get to live another day.");
-    location.reload();
-  }, 1);
-};
-
-// music: auto play music once one of the buttons are clicked, play different music when game lost or won (royalty free music)
