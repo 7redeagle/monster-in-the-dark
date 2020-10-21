@@ -84,6 +84,9 @@ html::before {
 }
 
 @media (max-width: 600px) {
+  html {
+    background-size: 1000px 1000px;
+  }
   .main__buttons {
     display: grid;
     grid-template-columns: none;
