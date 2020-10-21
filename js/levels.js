@@ -1,10 +1,7 @@
-// game setup
+const gameScreen = document.querySelector("html");
 const allBtn = document.querySelectorAll(".button");
 const mainScreen = document.querySelector(".main");
 const gameScreen = document.querySelector("html");
-const monster = document.querySelector(".monster");
-
-// background music
 let audio = document.querySelector(".sound__bg");
 playAudioBg = () => {
   audio.volume = 0.3;
@@ -16,23 +13,6 @@ pauseAudioBg = () => {
   audioLose.volume = 0.2;
   audioLose.play();
 };
-
-// move monster to random position
-moveMonster = () => {
-  function getRandomPosition(e) {
-    var x = document.body.offsetHeight - e.clientHeight;
-    var y = document.body.offsetWidth - e.clientWidth;
-    var randomX = Math.floor(Math.random() * x);
-    var randomY = Math.floor(Math.random() * y);
-    return [randomX, randomY];
-  }
-  var xy = getRandomPosition(monster);
-  monster.style.top = xy[0] + "px";
-  monster.style.left = xy[1] + "px";
-};
-
-// The monster will move every 5 seconds
-let intervalMonster = window.setInterval(moveMonster, 1000);
 
 // backgroung img for each mode
 hard = () => {
@@ -57,17 +37,6 @@ loseGame = () => {
     alert("The monster ate you!");
     location.reload();
   }, 1000);
-};
-
-// win game
-monster.onmouseover = () => {
-  window.clearInterval(intervalMonster);
-  monster.style.transform = "scale(2.5)";
-  audio.pause();
-  setTimeout(function () {
-    alert("You vanquished the monster! You get to live another day.");
-    location.reload();
-  }, 1);
 };
 
 hardTime = () => {

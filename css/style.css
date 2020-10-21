@@ -1,5 +1,6 @@
-@import "normalize.css";
 @import url(https://fonts.googleapis.com/css?family=Cedarville+Cursive:regular);
+@import "./normalize.css";
+@import "./popup.css";
 
 :root {
   --font: "Cedarville Cursive", cursive;
@@ -75,6 +76,7 @@ html::before {
   background: transparent;
   border: 2px solid #000000;
   transition: all 0.2s ease-in-out;
+  padding: 10px;
 }
 
 .button:hover {
@@ -82,6 +84,31 @@ html::before {
   cursor: pointer;
 }
 
+/* footer and links */
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  color: rgb(33, 63, 197);
+}
+
+a:hover {
+  color: aqua;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #000000;
+  background-color: #ffffff;
+}
+
+.footer__copyright {
+  margin: 5px auto;
+}
+
+/* mobile */
 @media (max-width: 500px) {
   .main__buttons {
     display: grid;
