@@ -16,6 +16,19 @@ const mainScreen = document.querySelector(".main");
 const gameScreen = document.querySelector("html");
 const monster = document.querySelector(".monster");
 
+// background music
+let audio = document.querySelector(".sound__bg");
+playAudioBg = () => {
+  audio.volume = 0.2;
+  audio.play();
+};
+pauseAudioBg = () => {
+  audio.pause();
+  let audioLose = document.querySelector(".sound__lose");
+  audioLose.volume = 0.2;
+  audioLose.play();
+};
+
 // move monster to random position
 moveMonster = () => {
   function getRandomPosition(e) {
@@ -33,6 +46,7 @@ moveMonster = () => {
 // The monster will move every 5 seconds
 let intervalMonster = window.setInterval(moveMonster, 5000);
 
+// backgroung img for each mode
 easy = () => {
   gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
   gameScreen.style.visibility = "visible";
@@ -49,6 +63,7 @@ hard = () => {
 lostGame = () => {
   gameScreen.style.pointerEvents = "none";
   window.clearInterval(intervalMonster);
+  pauseAudioBg();
   setTimeout(function () {
     gameScreen.style.opacity = "0";
     alert("The monster ate you!");
@@ -58,6 +73,7 @@ lostGame = () => {
 
 hardTime = () => {
   hard();
+  playAudioBg();
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 5vmax";
     hard();
@@ -79,6 +95,7 @@ hardTime = () => {
 
 mediumTime = () => {
   medium();
+  playAudioBg();
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 5vmax";
     medium();
@@ -100,6 +117,7 @@ mediumTime = () => {
 
 easyTime = () => {
   easy();
+  playAudioBg();
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 6vmax";
     easy();
@@ -140,6 +158,7 @@ allBtn.forEach(function (button) {
 monster.onmouseover = () => {
   window.clearInterval(intervalMonster);
   monster.style.transform = "scale(2.5)";
+  audio.pause();
   setTimeout(function () {
     alert("You vanquished the monster! You get to live another day.");
     location.reload();
