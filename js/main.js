@@ -44,7 +44,7 @@ moveMonster = () => {
 };
 
 // The monster will move every 5 seconds
-let intervalMonster = window.setInterval(moveMonster, 3000);
+let intervalMonster = window.setInterval(moveMonster, 1000);
 
 // backgroung img for each mode
 hard = () => {
@@ -86,51 +86,51 @@ hardTime = () => {
   hard();
   playAudioBg();
   setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 5vmax";
-    hard();
-  }, 5000);
-  setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 3vmax";
     hard();
-  }, 10000);
+  }, 1000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 2vmax";
+    hard();
+  }, 3000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 1max";
     hard();
-  }, 14000);
+  }, 6000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
     hard();
     loseGame();
-  }, 15000);
+  }, 7000);
 };
 
 mediumTime = () => {
   medium();
   playAudioBg();
   setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 5vmax";
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
     medium();
-  }, 5000);
+  }, 3000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 3vmax";
     medium();
-  }, 10000);
+  }, 7000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 1max";
     medium();
-  }, 14000);
+  }, 8000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
     medium();
     loseGame();
-  }, 15000);
+  }, 9000);
 };
 
 easyTime = () => {
   easy();
   playAudioBg();
   setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 5vmax";
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
     easy();
   }, 5000);
   setTimeout(function () {
