@@ -18,42 +18,59 @@ const monster = document.querySelector(".monster");
 
 easy = () => {
   gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+  gameScreen.style.visibility = "visible";
 };
 medium = () => {
   gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
+  gameScreen.style.visibility = "visible";
 };
 hard = () => {
   gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
+  gameScreen.style.visibility = "visible";
 };
 
-// shrink light
-shrinkLight = () => {
+hardTime = () => {
+  hard();
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 6vmax";
-    displayGame(easy);
-    // gameScreen.style.visibility = "visible";
-    // gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+    hard();
   }, 4000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 4vmax";
-    // gameScreen.style.visibility = "visible";
-    // gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+    hard();
   }, 8000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 2vmax";
-    // gameScreen.style.visibility = "visible";
-    // gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+    hard();
   }, 10000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
-    // gameScreen.style.visibility = "visible";
-    // gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+    hard();
+    alert("The monster ate you!");
+    location.reload();
   }, 13000);
 };
 
-// game values
-displayGame = (level) => {
-  gameScreen.style.visibility = "visible";
+easyTime = () => {
+  easy();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 6vmax";
+    easy();
+  }, 4000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
+    easy();
+  }, 8000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 2vmax";
+    easy();
+  }, 10000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    easy();
+    alert("The monster ate you!");
+    location.reload();
+  }, 13000);
 };
 
 // move monster to random position
@@ -80,14 +97,12 @@ allBtn.forEach(function (button) {
     gameScreen.style.visibility = "visible";
     moveMonster();
     if (button.classList.contains("button__hard")) {
-      displayGame(hard());
+      hardTime();
     } else if (button.classList.contains("button__medium")) {
-      displayGame(medium());
+      medium();
     } else {
-      // gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-      displayGame(easy());
+      easyTime();
     }
-
     moveMonster();
   };
 });
