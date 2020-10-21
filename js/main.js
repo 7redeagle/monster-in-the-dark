@@ -51,6 +51,28 @@ hardTime = () => {
   }, 13000);
 };
 
+mediumTime = () => {
+  medium();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 6vmax";
+    medium();
+  }, 4000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
+    medium();
+  }, 8000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 2vmax";
+    medium();
+  }, 10000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    medium();
+    alert("The monster ate you!");
+    location.reload();
+  }, 13000);
+};
+
 easyTime = () => {
   easy();
   setTimeout(function () {
