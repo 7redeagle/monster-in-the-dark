@@ -40,44 +40,17 @@ allBtn.forEach(function (button) {
     gameScreen.style.visibility = "visible";
     moveMonster();
     if (button.classList.contains("button__hard")) {
-      shrinkLight();
       gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
     } else if (button.classList.contains("button__medium")) {
       gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
     } else {
       gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-      shrinkLight();
     }
-
     moveMonster();
   };
 });
 
-// shrink light
-shrinkLight = () => {
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 6vmax";
-    gameScreen.style.visibility = "visible";
-    gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-  }, 4000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 4vmax";
-    gameScreen.style.visibility = "visible";
-    gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-  }, 8000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 2vmax";
-    gameScreen.style.visibility = "visible";
-    gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-  }, 10000);
-  setTimeout(function () {
-    document.documentElement.style.cssText = "--cursorSize: 0vmax";
-    gameScreen.style.visibility = "visible";
-    gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
-  }, 13000);
-};
-
-// on mouseover of monster, you win play sound, reload game and clear interval. Also activate scream.
+// on mouseover of monster, you win play sound, reload game and clear interval
 monster.onmouseover = () => {
   window.clearInterval(intervalMonster);
   alert("You vanquished the monster");
@@ -85,7 +58,5 @@ monster.onmouseover = () => {
 };
 
 // music: auto play music once one of the buttons are clicked, play different music when game lost or won (royalty free music)
-
-// play doom music when lost
 
 // use functions for items that are reusable
