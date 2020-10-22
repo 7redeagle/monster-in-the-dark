@@ -38,15 +38,17 @@ let intervalMonster = window.setInterval(moveMonster, 1000);
 hard = () => {
   gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
   gameScreen.style.visibility = "visible";
-  // gameScreen.style.overflow = "hidden";
+  gameScreen.style.overflow = "hidden";
 };
 medium = () => {
   gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
   gameScreen.style.visibility = "visible";
+  gameScreen.style.overflow = "hidden";
 };
 easy = () => {
   gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
   gameScreen.style.visibility = "visible";
+  gameScreen.style.overflow = "hidden";
 };
 
 loseGame = () => {
@@ -66,11 +68,11 @@ monster.onmouseover = () => {
   window.clearInterval(intervalMonster);
   monster.style.transform = "scale(3)";
   audioBg.pause();
+  audioWin.play();
   setTimeout(function () {
-    audioWin.play();
     alert("You vanquished the monster! You get to live another day.");
     location.reload();
-  }, 1);
+  }, 1000);
 };
 
 hardTime = () => {
@@ -79,7 +81,7 @@ hardTime = () => {
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 3vmax";
     hard();
-  }, 1000);
+  }, 1);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 2vmax";
     hard();
