@@ -5,14 +5,14 @@ const gameScreen = document.querySelector("html");
 const monster = document.querySelector(".monster");
 
 // background music
-let audio = document.querySelector(".sound__bg");
+let audioBg = document.querySelector(".audio__bg");
 playAudioBg = () => {
-  audio.volume = 0.3;
-  audio.play();
+  audioBg.volume = 0.5;
+  audioBg.play();
 };
 pauseAudioBg = () => {
-  audio.pause();
-  let audioLose = document.querySelector(".sound__lose");
+  audioBg.pause();
+  let audioLose = document.querySelector(".audio__lose");
   audioLose.volume = 0.2;
   audioLose.play();
 };
@@ -38,6 +38,7 @@ let intervalMonster = window.setInterval(moveMonster, 1000);
 hard = () => {
   gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
   gameScreen.style.visibility = "visible";
+  // gameScreen.style.overflow = "hidden";
 };
 medium = () => {
   gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
@@ -49,8 +50,8 @@ easy = () => {
 };
 
 loseGame = () => {
-  gameScreen.style.pointerEvents = "none";
   window.clearInterval(intervalMonster);
+  gameScreen.style.pointerEvents = "none";
   pauseAudioBg();
   setTimeout(function () {
     gameScreen.style.opacity = "0";
@@ -61,10 +62,12 @@ loseGame = () => {
 
 // win game
 monster.onmouseover = () => {
+  let audioWin = document.querySelector(".audio__win");
   window.clearInterval(intervalMonster);
-  monster.style.transform = "scale(2.5)";
-  audio.pause();
+  monster.style.transform = "scale(3)";
+  audioBg.pause();
   setTimeout(function () {
+    audioWin.play();
     alert("You vanquished the monster! You get to live another day.");
     location.reload();
   }, 1);

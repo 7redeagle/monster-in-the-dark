@@ -3,3 +3,5 @@
 2. How to make monster appear randomly within the confines of the window
 
 3. Every time the light shrinks, the gamescreen and the bg image would disappear.
+
+4. 
