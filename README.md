@@ -1,6 +1,6 @@
 # monster in the dark
 
-A simple find the monster before your flashlight runs out of battery.
+A simple find the monster before your flashlight runs out of battery. [Play here](https://tiger-fish.github.io/monster-in-the-dark/)
 
 ## what to improve on
 
