@@ -5,6 +5,6 @@ A simple find the monster before your flashlight runs out of battery. [Play here
 ## what to improve on
 - [x] Fix: mouse should not return to original position everytime the light shrinks
 - [x] Have multiple difficulty modes
-- [ ]Make monster more interactive like shrinking when the light shines on it
-- [ ]Shorten js code and make it more readable
+- [ ] Make monster more interactive like shrinking when the light shines on it
+- [ ] Shorten js code and make it more readable
 
