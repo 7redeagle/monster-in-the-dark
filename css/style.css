@@ -73,12 +73,17 @@ html::before {
   font-size: 20px;
   outline: none;
   background: transparent;
-  border: 2px solid #000000;
+  /* border: 2px solid #000000; */
   transition: all 0.2s ease-in-out;
   padding: 10px;
+  outline: none;
+  border: solid 2px #41403e;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
 .button:hover {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
   transform: scale(1.2);
   cursor: pointer;
 }
