@@ -84,16 +84,6 @@ html::before {
 }
 
 /* footer and links */
-a {
-  text-decoration: none;
-  transition: all 0.3s ease-out;
-  color: rgb(33, 63, 197);
-}
-
-a:hover {
-  color: aqua;
-}
-
 .footer {
   position: fixed;
   bottom: 0;
@@ -105,6 +95,16 @@ a:hover {
 
 .footer__copyright {
   margin: 5px auto;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  color: rgb(33, 63, 197);
+}
+
+a:hover {
+  color: aqua;
 }
 
 /* mobile */

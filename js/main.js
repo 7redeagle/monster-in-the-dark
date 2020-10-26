@@ -31,7 +31,7 @@ moveMonster = () => {
   monster.style.left = xy[1] + "px";
 };
 
-// The monster will move every 5 seconds
+// The monster will move every n seconds
 let intervalMonster = window.setInterval(moveMonster, 1000);
 
 // backgroung img for each mode
