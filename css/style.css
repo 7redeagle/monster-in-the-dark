@@ -60,6 +60,22 @@ html::before {
   display: block;
   width: 100px;
   margin: 20px auto;
+  animation-name: hovering;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes hovering {
+  from {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, -25px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
 }
 
 .main__buttons {
@@ -73,8 +89,7 @@ html::before {
   font-size: 20px;
   outline: none;
   background: transparent;
-  /* border: 2px solid #000000; */
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease;
   padding: 10px;
   outline: none;
   border: solid 2px #41403e;
@@ -84,7 +99,7 @@ html::before {
 
 .button:hover {
   box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   cursor: pointer;
 }
 
