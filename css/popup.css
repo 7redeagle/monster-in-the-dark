@@ -8,6 +8,7 @@
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
+  overflow: scroll;
 }
 
 .popup__overlay:target {
@@ -21,8 +22,7 @@
   padding: 20px;
   background: #ffffff;
   border-radius: 3px;
-  width: 40vw;
-  height: 70vh;
+  width: 50vw;
   position: relative;
   transition: all 5s ease-in-out;
 }
