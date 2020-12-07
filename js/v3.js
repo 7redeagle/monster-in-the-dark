@@ -35,11 +35,21 @@ moveMonster = () => {
 let intervalMonster = window.setInterval(moveMonster, 1000);
 
 // backgroung img for each mode
-pickChoice = (img) => {
-  gameScreen.style.backgroundImage = img;
+hard = () => {
+  gameScreen.style.backgroundImage = "url(assets/hard.jpg)";
   gameScreen.style.visibility = "visible";
   gameScreen.style.overflow = "hidden";
-}
+};
+medium = () => {
+  gameScreen.style.backgroundImage = "url(assets/medium.jpg)";
+  gameScreen.style.visibility = "visible";
+  gameScreen.style.overflow = "hidden";
+};
+easy = () => {
+  gameScreen.style.backgroundImage = "url(assets/easy.jpg)";
+  gameScreen.style.visibility = "visible";
+  gameScreen.style.overflow = "hidden";
+};
 
 loseGame = () => {
   window.clearInterval(intervalMonster);
@@ -65,27 +75,71 @@ monster.onmouseover = () => {
   }, 1000);
 };
 
-pickTime = (time1, time2, time3, time4, choice) => {
-  pickChoice(choice); 
+hardTime = () => {
+  hard();
   playAudioBg();
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 3vmax";
-    pickChoice(choice); 
-  }, time1);
+    hard();
+  }, 1);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 2vmax";
-    pickChoice(choice); 
-  }, time2);
+    hard();
+  }, 3000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 1max";
-    pickChoice(choice); 
-  }, time3);
+    hard();
+  }, 6000);
   setTimeout(function () {
     document.documentElement.style.cssText = "--cursorSize: 0vmax";
-    pickChoice(choice); 
+    hard();
     loseGame();
-  }, time4);
-}
+  }, 7000);
+};
+
+mediumTime = () => {
+  medium();
+  playAudioBg();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
+    medium();
+  }, 3000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 3vmax";
+    medium();
+  }, 7000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 1max";
+    medium();
+  }, 8000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    medium();
+    loseGame();
+  }, 9000);
+};
+
+easyTime = () => {
+  easy();
+  playAudioBg();
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 4vmax";
+    easy();
+  }, 5000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 3vmax";
+    easy();
+  }, 10000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 1max";
+    easy();
+  }, 14000);
+  setTimeout(function () {
+    document.documentElement.style.cssText = "--cursorSize: 0vmax";
+    easy();
+    loseGame();
+  }, 15000);
+};
 
 // click button to begin game and hide the mainScreen. Each button links to different background images.
 allBtn.forEach(function (button) {
@@ -94,11 +148,11 @@ allBtn.forEach(function (button) {
     gameScreen.style.visibility = "visible";
     moveMonster();
     if (button.classList.contains("button__hard")) {
-      pickTime(1, 3000, 6000, 7000, "url(assets/hard.jpg)");
+      hardTime();
     } else if (button.classList.contains("button__medium")) {
-      pickTime(3000, 7000, 8000, 9000, "url(assets/medium.jpg)");
+      mediumTime();
     } else if (button.classList.contains("button__easy")) {
-      pickTime(5000, 10000, 14000, 15000, "url(assets/easy.jpg)"); 
+      easyTime();
     }
   };
 });
