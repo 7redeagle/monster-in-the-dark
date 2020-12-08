@@ -17,8 +17,9 @@ html {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  font-size: 20px;
+  font-size: 16px;
 }
+
 
 html::before {
   content: "";
@@ -27,14 +28,14 @@ html::before {
   height: 100%;
   position: fixed;
   pointer-events: none;
-  background: radial-gradient(
-    circle var(--cursorSize) at var(--cursorX) var(--cursorY),
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.5) 80%,
-    rgba(0, 0, 0, 0.95) 100%
-  );
+  background: radial-gradient(circle var(--cursorSize) at var(--cursorX) var(--cursorY),
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 80%,
+      rgba(0, 0, 0, 0.95) 100%);
   transition: all 0.2s;
 }
+
+
 
 .monster {
   position: absolute;
@@ -57,6 +58,12 @@ html::before {
   line-height: 2;
 }
 
+@media (min-width: 1600px) {
+  .main {
+    font-size: 1.5rem;
+  }
+}
+
 .main__monster {
   display: block;
   width: 100px;
@@ -71,9 +78,11 @@ html::before {
   from {
     transform: translate(0, 0px);
   }
+
   50% {
     transform: translate(0, -25px);
   }
+
   to {
     transform: translate(0, -0px);
   }
