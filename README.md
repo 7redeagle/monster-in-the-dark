@@ -7,4 +7,4 @@ A simple find the monster before your flashlight runs out of battery. [Play here
 - [x] Have multiple difficulty modes
 - [ ] Make monster more interactive like shrinking when the light shines on it
 - [x] Shorten js code and make it more readable
-
+- [ ] Trim CSS and HTML
