@@ -1,0 +1,144 @@
+:root {
+  --font: "Cedarville Cursive", cursive;
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+  --cursorSize: 5vmax;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  visibility: hidden;
+  cursor: none;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 16px;
+}
+
+
+html::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle var(--cursorSize) at var(--cursorX) var(--cursorY),
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 80%,
+      rgba(0, 0, 0, 0.95) 100%);
+  transition: all 0.2s;
+}
+
+
+
+.monster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5vw;
+  mix-blend-mode: darken;
+}
+
+/* click to play screen */
+.main {
+  visibility: visible;
+  width: 60vw;
+  margin: auto;
+  padding: 50px 50px;
+  cursor: default;
+  color: #000000;
+  text-align: center;
+  font-family: var(--font);
+  line-height: 2;
+}
+
+@media (min-width: 1600px) {
+  .main {
+    font-size: 1.5rem;
+  }
+}
+
+.main__monster {
+  display: block;
+  width: 100px;
+  margin: 20px auto;
+  animation-name: hovering;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes hovering {
+  from {
+    transform: translate(0, 0px);
+  }
+
+  50% {
+    transform: translate(0, -25px);
+  }
+
+  to {
+    transform: translate(0, -0px);
+  }
+}
+
+.main__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.button {
+  font-family: var(--font);
+  font-size: 20px;
+  outline: none;
+  background: transparent;
+  transition: all 0.5s ease;
+  padding: 10px;
+  outline: none;
+  border: solid 2px #41403e;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.button:hover {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  /* transform: scale(1.2); */
+  cursor: pointer;
+}
+
+/* footer and links */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #000000;
+  background-color: #ffffff;
+}
+
+.footer__copyright {
+  margin: 5px auto;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  color: rgb(33, 63, 197);
+}
+
+a:hover {
+  color: aqua;
+}
+
+/* mobile */
+@media (max-width: 500px) {
+  .main__buttons {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
